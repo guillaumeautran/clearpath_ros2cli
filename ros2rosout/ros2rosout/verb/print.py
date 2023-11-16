@@ -39,13 +39,16 @@ class PrintVerb(VerbExtension):
         add_arguments(parser)
         parser.add_argument(
             '-l', '--level', default=int.from_bytes(Log.INFO, 'big'), type=int,
-            help='Print log statement with priority level greater than this value')
+            help='''Print log statement with priority level '
+            greater than this value''')
         parser.add_argument(
             '-n', '--node-regex', default=None,
-            help='Only print log statements from node(s) matching the regular expression provided')
+            help='''Only print log statements from node(s) matching the
+            regular expression provided''')
         parser.add_argument(
             '--no-color', action='store_true', default=False,
-            help='Disables the use of ASCII colors for the output of the command')
+            help='''Disables the use of ASCII colors
+            for the output of the command''')
         parser.add_argument(
             '-f', '--function-detail', action='store_true', default=False,
             help='Output function name, file, and line number')
@@ -101,7 +104,8 @@ class PrintVerb(VerbExtension):
     def rosout_cb(self, msg):
         if msg.level < self.args_.level:
             return
-        if self.args_.node_regex and not re.search(self.args_.node_regex, msg.name):
+        if self.args_.node_regex and not re.search(
+                self.args_.node_regex, msg.name):
             return
         color = self.get_color(msg.level)
         lvl = self.add_color(self.level_to_string(msg.level), color)
@@ -120,5 +124,6 @@ class PrintVerb(VerbExtension):
         self.args_ = args
 
         with NodeStrategy(args) as node:
-            self.rosout_ = node.node.create_subscription(Log, '/rosout', self.rosout_cb, 10)
+            self.rosout_ = node.node.create_subscription(
+                Log, '/rosout', self.rosout_cb, 10)
             rclpy.spin(node)
