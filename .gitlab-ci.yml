@@ -1,0 +1,2 @@
+# GitLab CI/CD pipelines are configured using a YAML file called .gitlab-ci.yml within each project. 
+# Commit this configuration to the repository to see the pipeline in action.
