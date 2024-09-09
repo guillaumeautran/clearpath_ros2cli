@@ -38,7 +38,7 @@ class PrintVerb(VerbExtension):
     def add_arguments(self, parser, cli_name):
         add_arguments(parser)
         parser.add_argument(
-            '-l', '--level', default=int.from_bytes(Log.INFO, 'big'), type=int,
+            '-l', '--level', default=Log.INFO, type=int,
             help='''Print log statement with priority level '
             greater than this value''')
         parser.add_argument(
