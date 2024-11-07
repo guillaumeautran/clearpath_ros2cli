@@ -15,7 +15,6 @@ builders:
     }
     - sphinx: {
         name: 'ros2diagnostics',
-        ## This path is relative to output staging.
         doxygen_xml_directory: 'generated/doxygen/xml',
         output_dir: ''
     }

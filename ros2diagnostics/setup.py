@@ -25,7 +25,7 @@ setup(
     classifiers=[
         'Environment :: Console',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: Apache Software License',
+        'License :: OSI Approved :: 3-Clause BSD License',
         'Programming Language :: Python',
     ],
     description="""\
@@ -34,7 +34,7 @@ setup(
     long_description="""\
     The package provides a cli tool to echo \
     the diagnostics logs in a ROS 2 system""",
-    license='Apache License, Version 2.0',
+    license='BSD',
     tests_require=['pytest'],
     entry_points={
         'ros2cli.command': [
